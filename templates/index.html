@@ -1,19 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlayzArmyHub</title>
     <style>
         body {
-            background-color: #0f172a;
-            color: white;
-            font-family: Arial;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #121212, #1f1f1f, #121212);
+            background-size: 400% 400%;
+            color: #fff;
             text-align: center;
+            padding-top: 50px;
+            animation: gradientBG 15s ease infinite;
         }
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #facc15;
+            text-shadow: 0 0 10px #facc15, 0 0 20px #ffea00;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            color: #ccc;
+        }
+
         .video {
             background: #1e293b;
-            padding: 15px;
-            margin: 20px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 500px;
+            border-radius: 15px;
+            transition: transform 0.3s, background 0.3s;
+            cursor: pointer;
+        }
+
+        .video:hover {
+            background: #334155;
+            transform: scale(1.05);
+        }
+
+        .video h2 {
+            margin-bottom: 10px;
+            color: #facc15;
+        }
+
+        .video p {
+            color: #ccc;
+        }
+
+        .video img {
+            width: 100%;
             border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 15px;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 10px;
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(255,255,255,0.2);
+        }
+
+        .youtube {
+            background: linear-gradient(45deg, #FF0000, #ff4d4d);
+        }
+
+        .youtube:hover {
+            box-shadow: 0 0 20px #FF0000;
+        }
+
+        .discord {
+            background: linear-gradient(45deg, #7289da, #99a9f0);
+        }
+
+        .discord:hover {
+            box-shadow: 0 0 20px #7289da;
         }
     </style>
 </head>
@@ -22,15 +98,42 @@
     <h1>🔥 Welcome to PlayzArmyHub 🔥</h1>
     <p>Your Gaming & YouTube Hub</p>
 
-    <div class="video">
-        <h2>🎮 Free Fire Gameplay</h2>
-        <p>Coming Soon...</p>
+    <!-- Roblox Card -->
+    <div class="video" id="robloxCard" onclick="showRoblox()">
+        <h2>🎮 Roblox Adventures</h2>
+        <p>Click to see my username!</p>
     </div>
 
-    <div class="video">
-        <h2>🎮 BGMI Highlights</h2>
-        <p>Coming Soon...</p>
+    <!-- Minecraft Card -->
+    <div class="video" id="minecraftCard" onclick="showMinecraft()">
+        <h2>🎮 Minecraft Builds</h2>
+        <p>Click to see my username!</p>
     </div>
+
+    <!-- Buttons -->
+    <a href="https://youtube.com/@satyamplayzlive?si=NSD_B3lGchJf6vWN" target="_blank" class="button youtube">Visit My YouTube</a>
+    <a href="https://discord.gg/6BpmcxD8" target="_blank" class="button discord">Join My Discord</a>
+
+    <!-- SCRIPT FOR CLICK ACTION -->
+    <script>
+        function showRoblox() {
+            const card = document.getElementById('robloxCard');
+            card.innerHTML = `
+                <h2>🎮 Roblox Adventures</h2>
+                <p>Username: <strong>DGamer_VIP1</strong></p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Roblox_Logo_2023.svg/320px-Roblox_Logo_2023.svg.png" alt="Roblox Logo">
+            `;
+        }
+
+        function showMinecraft() {
+            const card = document.getElementById('minecraftCard');
+            card.innerHTML = `
+                <h2>🎮 Minecraft Builds</h2>
+                <p>Username: <strong>SatyamPlayz</strong></p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Minecraft_logo.svg/320px-Minecraft_logo.svg.png" alt="Minecraft Logo">
+            `;
+        }
+    </script>
 
 </body>
 </html>
