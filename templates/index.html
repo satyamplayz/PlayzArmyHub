@@ -3,196 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PlayzArmyHub</title>
+<title>PlayzArmyHub.in | Official Website of SatyamPlayz</title>
+
 <style>
-    /* ---------- BODY & BACKGROUND ---------- */
-    body {
-        font-family: Arial, sans-serif;
-        background: linear-gradient(120deg, #121212, #1f1f1f, #121212);
-        background-size: 400% 400%;
-        color: #fff;
-        text-align: center;
-        padding-top: 50px;
-        animation: gradientBG 15s ease infinite;
-        margin: 0;
-    }
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(120deg,#121212,#1f1f1f,#121212);
+    background-size:400% 400%;
+    color:white;
+    text-align:center;
+    animation:bg 15s ease infinite;
+}
+@keyframes bg{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
 
-    @keyframes gradientBG {
-        0% {background-position: 0% 50%;}
-        50% {background-position: 100% 50%;}
-        100% {background-position: 0% 50%;}
-    }
+/* LOADER */
+#loader{
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:black;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    animation:fade 2s forwards;
+    animation-delay:2s;
+}
+@keyframes fade{
+    to{opacity:0;visibility:hidden;}
+}
 
-    /* ---------- NEON BANNER ---------- */
-    .banner {
-        font-family: 'Arial Black', sans-serif;
-        font-size: 6vw;
-        color: #ff0000;
-        text-transform: uppercase;
-        position: relative;
-        text-align: center;
-        margin-bottom: 40px;
-        animation: flicker 2s infinite, pulse 3s infinite alternate;
-    }
+.banner{
+    font-size:clamp(32px,6vw,80px);
+    color:red;
+    margin-top:80px;
+    text-shadow:0 0 15px red;
+}
 
-    .banner::before {
-        content: attr(data-text);
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        color: #ff4d4d;
-        text-shadow:
-            0 0 5px #ff0000,
-            0 0 10px #ff0000,
-            0 0 20px #ff0000,
-            0 0 30px #ff4d4d,
-            0 0 40px #ff6666,
-            0 0 60px #ff6666;
-        filter: blur(2px);
-        z-index: -1;
-    }
+.video{
+    background:#1e293b;
+    padding:20px;
+    margin:20px auto;
+    max-width:500px;
+    border-radius:15px;
+    cursor:pointer;
+}
+.video:hover{
+    box-shadow:0 0 20px gold;
+}
 
-    @keyframes flicker {
-        0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
-        19%, 21%, 23%, 24%, 55% { opacity: 0.3; }
-    }
-
-    @keyframes pulse {
-        0% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; }
-        50% { text-shadow: 0 0 20px #ff0000, 0 0 40px #ff6666; }
-        100% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; }
-    }
-
-    /* ---------- HEADINGS ---------- */
-    h1 {
-        font-size: 3rem;
-        margin-bottom: 20px;
-        color: #facc15;
-        text-shadow: 0 0 10px #facc15, 0 0 20px #ffea00;
-    }
-
-    p {
-        font-size: 1.2rem;
-        margin-bottom: 50px;
-        color: #ccc;
-    }
-
-    /* ---------- VIDEO CARDS ---------- */
-    .video {
-        background: #1e293b;
-        padding: 20px;
-        margin: 20px auto;
-        max-width: 500px;
-        border-radius: 15px;
-        transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
-        cursor: pointer;
-    }
-
-    .video:hover {
-        background: #334155;
-        transform: scale(1.05);
-        box-shadow: 0 0 15px #facc15, 0 0 30px #ffea00;
-    }
-
-    .video h2 {
-        margin-bottom: 10px;
-        color: #facc15;
-    }
-
-    .video p {
-        color: #ccc;
-    }
-
-    .video img {
-        width: 100%;
-        border-radius: 10px;
-        margin-top: 10px;
-    }
-
-    /* ---------- BUTTONS ---------- */
-    .button {
-        display: inline-block;
-        margin: 15px;
-        padding: 15px 30px;
-        font-size: 18px;
-        text-decoration: none;
-        color: #fff;
-        border-radius: 10px;
-        transition: 0.3s;
-        box-shadow: 0 0 10px rgba(255,255,255,0.2);
-    }
-
-    .youtube {
-        background: linear-gradient(45deg, #FF0000, #ff4d4d);
-    }
-
-    .youtube:hover {
-        box-shadow: 0 0 20px #FF0000;
-    }
-
-    .discord {
-        background: linear-gradient(45deg, #7289da, #99a9f0);
-    }
-
-    .discord:hover {
-        box-shadow: 0 0 20px #7289da;
-    }
-
+.button{
+    display:inline-block;
+    margin:10px;
+    padding:15px 30px;
+    border-radius:10px;
+    color:white;
+    text-decoration:none;
+}
+.youtube{background:red;}
+.discord{background:#5865F2;}
 </style>
 </head>
+
 <body>
 
-    <!-- NEON WELCOME BANNER -->
-    <div class="banner" data-text="Welcome to PlayzArmy">Welcome to PlayzArmy</div>
+<div id="loader">
+    <h1>🔥 PlayzArmyHub 🔥</h1>
+</div>
 
-    <h1>🔥 Subscribe To Be Part Of PlayzArmy 🔥</h1>
-    <p>Your Gaming & YouTube Hub</p>
+<h1 class="banner">Welcome to PlayzArmy</h1>
+<p>Official Website of SatyamPlayz</p>
 
-    <!-- Roblox Card -->
-    <div class="video" id="robloxCard" onclick="showRoblox()">
-        <h2>🎮 Roblox Adventures</h2>
-        <p>Click to see my information!</p>
-    </div>
+<!-- YOUTUBE LATEST VIDEO -->
+<iframe width="360" height="215"
+src="https://www.youtube.com/embed?listType=user_uploads&list=SatyamPlayzLive"
+frameborder="0" allowfullscreen></iframe>
 
-    <!-- Minecraft Card -->
-    <div class="video" id="minecraftCard" onclick="showMinecraft()">
-        <h2>🎮 Minecraft </h2>
-        <p>Click to see my information!</p>
-    </div>
+<div class="video" onclick="roblox()">
+    <h2>🎮 Roblox</h2>
+    <p>Click to see info</p>
+</div>
 
-    <!-- Buttons -->
-    <a href="https://youtube.com/@satyamplayzlive?si=NSD_B3lGchJf6vWN" target="_blank" class="button youtube">Visit My YouTube</a>
-    <a href="https://discord.gg/6BpmcxD8" target="_blank" class="button discord">Join My Discord</a>
+<div class="video" onclick="minecraft()">
+    <h2>🎮 Minecraft</h2>
+    <p>Click to see info</p>
+</div>
 
-    <!-- ---------- SCRIPT ---------- -->
-    <script>
-        function showRoblox() {
-            const card = document.getElementById('robloxCard');
-            card.style.opacity = 0;
-            setTimeout(() => {
-                card.innerHTML = `
-                    <h2>🎮 Roblox Adventures</h2>
-                    <p>Username: <strong>DGamer_VIP1</strong></p>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Roblox_Logo_2023.svg/320px-Roblox_Logo_2023.svg.png" alt="Roblox Logo">
-                `;
-                card.style.opacity = 1;
-            }, 200);
-        }
+<a href="https://youtube.com/@satyamplayzlive" target="_blank" class="button youtube">🔴 YouTube</a>
+<a href="https://discord.gg/6BpmcxD8" target="_blank" class="button discord">💬 Discord</a>
+<a href="/members" class="button discord">👑 PlayzArmy Members</a>
 
-        function showMinecraft() {
-            const card = document.getElementById('minecraftCard');
-            card.style.opacity = 0;
-            setTimeout(() => {
-                card.innerHTML = `
-                    <h2>🎮 Minecraft Builds</h2>
-                    <p>Username: <strong>SatyamPlayz</strong></p>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Minecraft_logo.svg/320px-Minecraft_logo.svg.png" alt="Minecraft Logo">
-                `;
-                card.style.opacity = 1;
-            }, 200);
-        }
-    </script>
+<script>
+function roblox(){
+    alert("Roblox Username: DGamer_VIP1");
+}
+function minecraft(){
+    alert("Minecraft Username: SatyamPlayz");
+}
+</script>
 
 </body>
 </html>
