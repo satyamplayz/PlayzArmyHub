@@ -1,99 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlayzArmyHub</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(120deg, #121212, #1f1f1f, #121212);
-            background-size: 400% 400%;
-            color: #fff;
-            text-align: center;
-            padding-top: 50px;
-            animation: gradientBG 15s ease infinite;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlayzArmyHub</title>
+<style>
+    /* ---------- BODY & BACKGROUND ---------- */
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(120deg, #121212, #1f1f1f, #121212);
+        background-size: 400% 400%;
+        color: #fff;
+        text-align: center;
+        padding-top: 50px;
+        animation: gradientBG 15s ease infinite;
+        margin: 0;
+    }
 
-        @keyframes gradientBG {
-            0% {background-position: 0% 50%;}
-            50% {background-position: 100% 50%;}
-            100% {background-position: 0% 50%;}
-        }
+    @keyframes gradientBG {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #facc15;
-            text-shadow: 0 0 10px #facc15, 0 0 20px #ffea00;
-        }
+    /* ---------- NEON BANNER ---------- */
+    .banner {
+        font-family: 'Arial Black', sans-serif;
+        font-size: 6vw;
+        color: #ff0000;
+        text-transform: uppercase;
+        position: relative;
+        text-align: center;
+        margin-bottom: 40px;
+        animation: flicker 2s infinite, pulse 3s infinite alternate;
+    }
 
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 50px;
-            color: #ccc;
-        }
+    .banner::before {
+        content: attr(data-text);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        color: #ff4d4d;
+        text-shadow:
+            0 0 5px #ff0000,
+            0 0 10px #ff0000,
+            0 0 20px #ff0000,
+            0 0 30px #ff4d4d,
+            0 0 40px #ff6666,
+            0 0 60px #ff6666;
+        filter: blur(2px);
+        z-index: -1;
+    }
 
-        .video {
-            background: #1e293b;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 500px;
-            border-radius: 15px;
-            transition: transform 0.3s, background 0.3s;
-            cursor: pointer;
-        }
+    @keyframes flicker {
+        0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+        19%, 21%, 23%, 24%, 55% { opacity: 0.3; }
+    }
 
-        .video:hover {
-            background: #334155;
-            transform: scale(1.05);
-        }
+    @keyframes pulse {
+        0% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; }
+        50% { text-shadow: 0 0 20px #ff0000, 0 0 40px #ff6666; }
+        100% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; }
+    }
 
-        .video h2 {
-            margin-bottom: 10px;
-            color: #facc15;
-        }
+    /* ---------- HEADINGS ---------- */
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: #facc15;
+        text-shadow: 0 0 10px #facc15, 0 0 20px #ffea00;
+    }
 
-        .video p {
-            color: #ccc;
-        }
+    p {
+        font-size: 1.2rem;
+        margin-bottom: 50px;
+        color: #ccc;
+    }
 
-        .video img {
-            width: 100%;
-            border-radius: 10px;
-            margin-top: 10px;
-        }
+    /* ---------- VIDEO CARDS ---------- */
+    .video {
+        background: #1e293b;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 500px;
+        border-radius: 15px;
+        transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
 
-        .button {
-            display: inline-block;
-            margin: 15px;
-            padding: 15px 30px;
-            font-size: 18px;
-            text-decoration: none;
-            color: #fff;
-            border-radius: 10px;
-            transition: 0.3s;
-            box-shadow: 0 0 10px rgba(255,255,255,0.2);
-        }
+    .video:hover {
+        background: #334155;
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #facc15, 0 0 30px #ffea00;
+    }
 
-        .youtube {
-            background: linear-gradient(45deg, #FF0000, #ff4d4d);
-        }
+    .video h2 {
+        margin-bottom: 10px;
+        color: #facc15;
+    }
 
-        .youtube:hover {
-            box-shadow: 0 0 20px #FF0000;
-        }
+    .video p {
+        color: #ccc;
+    }
 
-        .discord {
-            background: linear-gradient(45deg, #7289da, #99a9f0);
-        }
+    .video img {
+        width: 100%;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
 
-        .discord:hover {
-            box-shadow: 0 0 20px #7289da;
-        }
-    </style>
+    /* ---------- BUTTONS ---------- */
+    .button {
+        display: inline-block;
+        margin: 15px;
+        padding: 15px 30px;
+        font-size: 18px;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 10px;
+        transition: 0.3s;
+        box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
+
+    .youtube {
+        background: linear-gradient(45deg, #FF0000, #ff4d4d);
+    }
+
+    .youtube:hover {
+        box-shadow: 0 0 20px #FF0000;
+    }
+
+    .discord {
+        background: linear-gradient(45deg, #7289da, #99a9f0);
+    }
+
+    .discord:hover {
+        box-shadow: 0 0 20px #7289da;
+    }
+
+</style>
 </head>
 <body>
+
+    <!-- NEON WELCOME BANNER -->
+    <div class="banner" data-text="Welcome to PlayzArmy">Welcome to PlayzArmy</div>
 
     <h1>🔥 Welcome to PlayzArmyHub 🔥</h1>
     <p>Your Gaming & YouTube Hub</p>
@@ -114,24 +165,32 @@
     <a href="https://youtube.com/@satyamplayzlive?si=NSD_B3lGchJf6vWN" target="_blank" class="button youtube">Visit My YouTube</a>
     <a href="https://discord.gg/6BpmcxD8" target="_blank" class="button discord">Join My Discord</a>
 
-    <!-- SCRIPT FOR CLICK ACTION -->
+    <!-- ---------- SCRIPT ---------- -->
     <script>
         function showRoblox() {
             const card = document.getElementById('robloxCard');
-            card.innerHTML = `
-                <h2>🎮 Roblox Adventures</h2>
-                <p>Username: <strong>DGamer_VIP1</strong></p>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Roblox_Logo_2023.svg/320px-Roblox_Logo_2023.svg.png" alt="Roblox Logo">
-            `;
+            card.style.opacity = 0;
+            setTimeout(() => {
+                card.innerHTML = `
+                    <h2>🎮 Roblox Adventures</h2>
+                    <p>Username: <strong>DGamer_VIP1</strong></p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Roblox_Logo_2023.svg/320px-Roblox_Logo_2023.svg.png" alt="Roblox Logo">
+                `;
+                card.style.opacity = 1;
+            }, 200);
         }
 
         function showMinecraft() {
             const card = document.getElementById('minecraftCard');
-            card.innerHTML = `
-                <h2>🎮 Minecraft Builds</h2>
-                <p>Username: <strong>SatyamPlayz</strong></p>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Minecraft_logo.svg/320px-Minecraft_logo.svg.png" alt="Minecraft Logo">
-            `;
+            card.style.opacity = 0;
+            setTimeout(() => {
+                card.innerHTML = `
+                    <h2>🎮 Minecraft Builds</h2>
+                    <p>Username: <strong>SatyamPlayz</strong></p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Minecraft_logo.svg/320px-Minecraft_logo.svg.png" alt="Minecraft Logo">
+                `;
+                card.style.opacity = 1;
+            }, 200);
         }
     </script>
 
