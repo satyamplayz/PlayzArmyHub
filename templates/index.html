@@ -15,23 +15,19 @@ body{
     color:white;
     text-align:center;
 }
-
 @keyframes bg{
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
-
 h1{
     color:red;
     text-shadow:0 0 15px red;
 }
-
 .banner{
     font-size:clamp(32px,6vw,70px);
     margin-top:80px;
 }
-
 .buttons a{
     display:inline-block;
     margin:10px;
@@ -41,20 +37,26 @@ h1{
     color:white;
     font-size:18px;
 }
-
 .youtube{background:red;}
 .discord{background:#5865F2;}
-
 .card{
     background:#1e293b;
     padding:20px;
     border-radius:15px;
-    max-width:600px;
+    max-width:650px;
     margin:30px auto;
     box-shadow:0 0 20px rgba(255,215,0,0.3);
 }
+.game{
+    cursor:pointer;
+    transition:0.3s;
+}
+.game:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px gold;
+}
 
-/* ===== LOADER ===== */
+/* LOADER */
 #loader{
     position:fixed;
     inset:0;
@@ -64,7 +66,6 @@ h1{
     justify-content:center;
     z-index:9999;
 }
-
 .progress{
     width:250px;
     height:10px;
@@ -72,18 +73,23 @@ h1{
     border-radius:20px;
     overflow:hidden;
 }
-
 #bar{
     height:100%;
     width:0%;
     background:red;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+    iframe{height:200px;}
+    .buttons a{display:block;width:80%;margin:10px auto;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🔥 LOADER -->
+<!-- LOADER -->
 <div id="loader">
     <div>
         <h1>🔥 PlayzArmyHub 🔥</h1>
@@ -93,31 +99,40 @@ h1{
     </div>
 </div>
 
-<!-- 🔥 MAIN CONTENT -->
-<h1 class="banner">Welcome to Playz Army</h1>
+<h1 class="banner">Welcome to PlayzArmy</h1>
 <p>Official Website of <b>SatyamPlayz</b></p>
 
 <div class="buttons">
-    <!-- 🔴 YOUTUBE LINK (SIRF YAHAN CHANGE KARNA) -->
+    <!-- YOUTUBE LINK -->
     <a class="youtube" href="https://youtube.com/@satyamplayzlive" target="_blank">🔴 YouTube</a>
 
-    <!-- 💬 DISCORD LINK -->
+    <!-- DISCORD LINK -->
     <a class="discord" href="https://discord.gg/6BpmcxD8" target="_blank">💬 Discord</a>
 </div>
 
-<!-- 🎥 LATEST YOUTUBE VIDEO AUTO -->
+<!-- 🔥 LATEST YOUTUBE VIDEO (FIXED METHOD) -->
 <div class="card">
-    <h2>🔥 Latest YouTube Video</h2>
+<h2>🎥 Latest YouTube Video</h2>
 
-    <!-- ❗ SIRF CHANNEL NAME CHANGE KARO -->
-    <iframe width="100%" height="315"
-    src="https://www.youtube.com/embed?listType=user_uploads&list=SatyamPlayzLive"
-    frameborder="0" allowfullscreen></iframe>
+<!-- ❗ SIRF EK BAAR CHANNEL ID DAALO -->
+<!-- Example: UUxxxxxxxxxxxxx -->
+<iframe width="100%" height="315"
+src="https://youtube.com/@satyamplayzlive?si=w0EZqbyUv3IhqDl-"
+frameborder="0" allowfullscreen></iframe>
 </div>
 
-<a href="/login">🔐 Admin Login</a>
+<!-- 🎮 ROBLOX -->
+<div class="card game" onclick="alert('Roblox Username: DGamer_VIP1')">
+<h2>🎮 Roblox</h2>
+<p>Click to see my Roblox info</p>
+</div>
 
-<!-- ===== LOADER SCRIPT ===== -->
+<!-- ⛏️ MINECRAFT -->
+<div class="card game" onclick="alert('Minecraft Username: SatyamPlayz')">
+<h2>⛏️ Minecraft</h2>
+<p>Click to see my Minecraft info</p>
+</div>
+
 <script>
 let load=0;
 let bar=document.getElementById("bar");
