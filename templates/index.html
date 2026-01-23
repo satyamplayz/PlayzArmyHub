@@ -1,106 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>PlayzArmyHub</title>
+<meta charset="UTF-8">
+<title>PlayzArmyHub | SatyamPlayz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        /* ===== BASIC PAGE STYLE ===== */
-        body{
-            margin:0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(120deg,#121212,#1f1f1f,#121212);
-            background-size:400% 400%;
-            color:white;
-            text-align:center;
-            animation:bg 15s ease infinite;
-        }
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(120deg,#0f0f0f,#1c1c1c,#0f0f0f);
+    background-size:400% 400%;
+    animation:bg 12s ease infinite;
+    color:white;
+    text-align:center;
+}
 
-        @keyframes bg{
-            0%{background-position:0% 50%}
-            50%{background-position:100% 50%}
-            100%{background-position:0% 50%}
-        }
+@keyframes bg{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
 
-        a{
-            color:#ff0000;
-            text-decoration:none;
-            font-size:18px;
-        }
+h1{
+    color:red;
+    text-shadow:0 0 15px red;
+}
 
-        /* ===== LOADER STYLE ===== */
-        #loader{
-            position:fixed;
-            inset:0;
-            background:black;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            z-index:9999;
-        }
+.banner{
+    font-size:clamp(32px,6vw,70px);
+    margin-top:80px;
+}
 
-        .loader-box{
-            text-align:center;
-        }
+.buttons a{
+    display:inline-block;
+    margin:10px;
+    padding:15px 30px;
+    border-radius:10px;
+    text-decoration:none;
+    color:white;
+    font-size:18px;
+}
 
-        .progress{
-            width:250px;
-            height:10px;
-            background:#333;
-            border-radius:20px;
-            overflow:hidden;
-            margin:20px auto;
-        }
+.youtube{background:red;}
+.discord{background:#5865F2;}
 
-        #bar{
-            width:0%;
-            height:100%;
-            background:red;
-            transition:0.2s;
-        }
-    </style>
+.card{
+    background:#1e293b;
+    padding:20px;
+    border-radius:15px;
+    max-width:600px;
+    margin:30px auto;
+    box-shadow:0 0 20px rgba(255,215,0,0.3);
+}
+
+/* ===== LOADER ===== */
+#loader{
+    position:fixed;
+    inset:0;
+    background:black;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+}
+
+.progress{
+    width:250px;
+    height:10px;
+    background:#333;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+#bar{
+    height:100%;
+    width:0%;
+    background:red;
+}
+</style>
 </head>
 
 <body>
 
-    <!-- ===== MAIN WEBSITE CONTENT ===== -->
-    <h1>🔥 Welcome to PlayzArmyHub 🔥</h1>
-    <p>Official website of SatyamPlayz</p>
-
-    <a href="/login">Admin Login</a>
-
-    <!-- ===== LOADER ===== -->
-    <div id="loader">
-        <div class="loader-box">
-            <h1>🔥 PlayzArmyHub 🔥</h1>
-            <p>Loading for the Army...</p>
-
-            <div class="progress">
-                <div id="bar"></div>
-            </div>
-
-            <span id="percent">0%</span>
-        </div>
+<!-- 🔥 LOADER -->
+<div id="loader">
+    <div>
+        <h1>🔥 PlayzArmyHub 🔥</h1>
+        <p>Loading for the Army...</p>
+        <div class="progress"><div id="bar"></div></div>
+        <span id="percent">0%</span>
     </div>
+</div>
 
-    <!-- ===== LOADER SCRIPT ===== -->
-    <script>
-        let load = 0;
-        let bar = document.getElementById("bar");
-        let percent = document.getElementById("percent");
-        let loader = document.getElementById("loader");
+<!-- 🔥 MAIN CONTENT -->
+<h1 class="banner">Welcome to Playz Army</h1>
+<p>Official Website of <b>SatyamPlayz</b></p>
 
-        let interval = setInterval(() => {
-            load++;
-            bar.style.width = load + "%";
-            percent.innerText = load + "%";
+<div class="buttons">
+    <!-- 🔴 YOUTUBE LINK (SIRF YAHAN CHANGE KARNA) -->
+    <a class="youtube" href="https://youtube.com/@satyamplayzlive" target="_blank">🔴 YouTube</a>
 
-            if(load >= 100){
-                clearInterval(interval);
-                loader.style.display = "none";
-            }
-        }, 25);
-    </script>
+    <!-- 💬 DISCORD LINK -->
+    <a class="discord" href="https://discord.gg/6BpmcxD8" target="_blank">💬 Discord</a>
+</div>
+
+<!-- 🎥 LATEST YOUTUBE VIDEO AUTO -->
+<div class="card">
+    <h2>🔥 Latest YouTube Video</h2>
+
+    <!-- ❗ SIRF CHANNEL NAME CHANGE KARO -->
+    <iframe width="100%" height="315"
+    src="https://www.youtube.com/embed?listType=user_uploads&list=SatyamPlayzLive"
+    frameborder="0" allowfullscreen></iframe>
+</div>
+
+<a href="/login">🔐 Admin Login</a>
+
+<!-- ===== LOADER SCRIPT ===== -->
+<script>
+let load=0;
+let bar=document.getElementById("bar");
+let percent=document.getElementById("percent");
+let loader=document.getElementById("loader");
+
+let interval=setInterval(()=>{
+    load++;
+    bar.style.width=load+"%";
+    percent.innerText=load+"%";
+    if(load>=100){
+        clearInterval(interval);
+        loader.style.display="none";
+    }
+},25);
+</script>
 
 </body>
 </html>
