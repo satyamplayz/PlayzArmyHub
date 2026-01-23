@@ -1,2 +1,2 @@
-fflask
+flask
 gunicorn
