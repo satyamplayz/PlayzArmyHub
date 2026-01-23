@@ -1,12 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>PlayzArmyHub</title>
+
+    <style>
+        /* ===== BASIC PAGE STYLE ===== */
+        body{
+            margin:0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg,#121212,#1f1f1f,#121212);
+            background-size:400% 400%;
+            color:white;
+            text-align:center;
+            animation:bg 15s ease infinite;
+        }
+
+        @keyframes bg{
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+
+        a{
+            color:#ff0000;
+            text-decoration:none;
+            font-size:18px;
+        }
+
+        /* ===== LOADER STYLE ===== */
+        #loader{
+            position:fixed;
+            inset:0;
+            background:black;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            z-index:9999;
+        }
+
+        .loader-box{
+            text-align:center;
+        }
+
+        .progress{
+            width:250px;
+            height:10px;
+            background:#333;
+            border-radius:20px;
+            overflow:hidden;
+            margin:20px auto;
+        }
+
+        #bar{
+            width:0%;
+            height:100%;
+            background:red;
+            transition:0.2s;
+        }
+    </style>
 </head>
+
 <body>
+
+    <!-- ===== MAIN WEBSITE CONTENT ===== -->
     <h1>🔥 Welcome to PlayzArmyHub 🔥</h1>
     <p>Official website of SatyamPlayz</p>
 
     <a href="/login">Admin Login</a>
+
+    <!-- ===== LOADER ===== -->
+    <div id="loader">
+        <div class="loader-box">
+            <h1>🔥 PlayzArmyHub 🔥</h1>
+            <p>Loading for the Army...</p>
+
+            <div class="progress">
+                <div id="bar"></div>
+            </div>
+
+            <span id="percent">0%</span>
+        </div>
+    </div>
+
+    <!-- ===== LOADER SCRIPT ===== -->
+    <script>
+        let load = 0;
+        let bar = document.getElementById("bar");
+        let percent = document.getElementById("percent");
+        let loader = document.getElementById("loader");
+
+        let interval = setInterval(() => {
+            load++;
+            bar.style.width = load + "%";
+            percent.innerText = load + "%";
+
+            if(load >= 100){
+                clearInterval(interval);
+                loader.style.display = "none";
+            }
+        }, 25);
+    </script>
+
 </body>
 </html>
